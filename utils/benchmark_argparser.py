@@ -13,17 +13,19 @@ class benchmark_argparser():
         # For Jetson Xavier: set to 'xavier'
         # For Jetson TX2: set to 'tx2'
         # For Jetson Nano: set to 'nano'
-        self.parser.add_argument('--power_mode', dest='power_mode', help='Jetson Power Mode', default=0, type=int)
+        self.parser.add_argument('--power_mode', dest='power_mode', help='Jetson Power Mode', default=8, type=int)
         # For Jetson Xavier: set to 0 (MAXN)
         # For Jetson TX2: set to 3 (MAXP)
         # For Jetson Nano: set to 0 (MAXN)
+        # For Jetson NX: set to 8 (MAXP)
         self.parser.add_argument('--precision', dest='precision', default='int8',
                                  help='precision for model int8 or fp16', type=str)
         # For Jetson Xavier: set to int8
         # For Jetson TX2: set to 3 fp16
         # For Jetson Nano: set to fp16
-        self.parser.add_argument('--jetson_clocks', dest='jetson_clocks', help='Set Clock Frequency to Max (jetson_clocks)',
+        self.parser.add_argument('--jetson_clocks', dest='jetson_clocks', default='True', help='Set Clock Frequency to Max (jetson_clocks)',
                                       action='store_true')
+        # default value set to True
         self.parser.add_argument('--gpu_freq', dest='gpu_freq', default=1109250000,help='set GPU frequency', type=int)
         # Default values are for Xavier-NX
         # For Xavier set gpu_freq to 1377000000: Find using  $sudo cat /sys/devices/17000000.gv11b/devfreq/17000000.gv11b/available_frequencies

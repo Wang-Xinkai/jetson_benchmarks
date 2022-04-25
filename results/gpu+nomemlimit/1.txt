@@ -1,0 +1,15 @@
+Setting Jetson xavier-nx in max performance mode
+True
+Jetson clocks are Set
+set jetson_clocks.
+------------Executing inception_v4------------
+
+--------------------------
+
+Model Name: inception_v4 
+FPS:190.49 
+
+--------------------------
+
+Wall Time for running model (secs): 565.4782228469849
+

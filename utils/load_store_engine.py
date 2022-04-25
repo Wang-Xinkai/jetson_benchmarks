@@ -33,7 +33,7 @@ class load_store_engine():
                 _model = str(os.path.splitext(self.model_name)[0]) + '_b' + str(self.batch_size_dla) + '_ws' + str(
                     self.ws_dla) + '_' + str(self.device) + str(device_id)
                 engine_CMD = str(
-                    './trtexec' + " " + model_base_path + " " + precision_cmd + " " +'--allowGPUFallback' + " " + " " + dla_cmd + " " +
+                    'cgexec -g memory:limit ./trtexec' + " " + model_base_path + " " + precision_cmd + " " +'--allowGPUFallback' + " " + " " + dla_cmd + " " +
                     workspace_cmd)
             else:
                 self.device = 'gpu'
@@ -42,7 +42,7 @@ class load_store_engine():
                 _model = str(os.path.splitext(self.model_name)[0]) + '_b' + str(self.batch_size_gpu) + '_ws' + str(
                     self.ws_gpu) + '_' + str(self.device)
                 engine_CMD = str(
-                    './trtexec' + " " + model_base_path + " " + precision_cmd + " " + workspace_cmd)
+                    'cgexec -g memory:limit ./trtexec' + " " + model_base_path + " " + precision_cmd + " " + workspace_cmd)
             cmd.append(engine_CMD)
             model.append(_model)
         return cmd, model

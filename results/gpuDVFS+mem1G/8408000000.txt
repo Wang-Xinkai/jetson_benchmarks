@@ -1,0 +1,11 @@
+------------Executing inception_v4------------
+
+--------------------------
+
+Model Name: inception_v4 
+FPS:84.70 
+
+--------------------------
+
+Wall Time for running model (secs): 787.1125373840332
+
